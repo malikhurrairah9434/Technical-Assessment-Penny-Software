@@ -18,6 +18,10 @@ Logic implemented in order to grant permissions to only approver and not the vie
 
 Viewer can only see the requests buttons disable for it.
 
+- cr.list.component.ts
+
+In the change requests section the status listdown was not working implemented the function so it should display only selected status.
+
 ## 2. Component & state model
 <!-- The screens, the view-state each component exposes, and how data flows from the mock API into the
 template. -->

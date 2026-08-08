@@ -67,8 +67,9 @@ export class CrDetailComponent implements OnInit {
 	}
 
 	get canReject(): boolean {
-		return (this.detail?.status === 'PENDING_APPROVAL' && this.session.user.policies.includes('cr_r_o'));
+		return (this.detail?.status === 'PENDING_APPROVAL' && this.session.user.policies.includes('cr_a_o'));
 	}
+
 
 	fmt(amount: number): string {
 		return this.detail ? formatMoney(amount, this.detail.currency) : String(amount);

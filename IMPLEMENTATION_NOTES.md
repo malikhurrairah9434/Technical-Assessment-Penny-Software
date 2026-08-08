@@ -12,6 +12,10 @@ In the compute function only unit price were being compared so the change detect
 
 *Reference:* https://stackoverflow.com/questions/1068834/object-comparison-in-javascript
 
+-cr-detail.component.ts
+
+Logic implemented in order to grant permissions to only approver and not the viewer.
+
 ## 2. Component & state model
 <!-- The screens, the view-state each component exposes, and how data flows from the mock API into the
 template. -->

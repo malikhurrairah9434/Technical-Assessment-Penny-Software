@@ -1,10 +1,7 @@
 # Implementation Notes
 
-> Fill this in as part of your submission. 1–2 pages, bullet points are fine. Delete these
-> instructions before submitting.
 
 ## 1. What I changed
-<!-- Grouped by task: bugs fixed and features implemented (component + template). -->
 
 - diff.util.ts
 
@@ -31,29 +28,49 @@ Approve Function Implemented now status is changed from pending to approved and 
 Reject function implemented, now status is changed to Rejected.
 
 ## 2. Component & state model
-<!-- The screens, the view-state each component exposes, and how data flows from the mock API into the
-template. -->
+
+- A simple VieState Patter was used:
+idle, loading, loaded and error
+- Benifits:
+Clear UI state transitions, easier error handeling and predictable rendering.
+- Data Flow:
+Component -> API service -> mock data
+UI always reflects API response.
 
 -
 
 ## 3. Invariants I keep
-<!-- Which properties the UI guarantees, and where in the component/template each is enforced. -->
+
 
 | Invariant | How / where |
-|---|---|
+|Only Approvers can take actions | can approve reject|
+|Reject must include reason | Form Validations|
+|Chronological Timeline | timeling getter sorted|
+|Diff rows must be accurate | all fields comparison in computeDiff|
+
 
 ## 4. Testing strategy
-<!-- What you tested (component/DOM vs pure) and why; what you deliberately skipped given the budget. -->
 
--
+- Relied on provided unit tests
+- Correct detection of changed vs unchanged
+- Manual testing: approve/reject flows, status updates etc
+- Permission based UI behaviour
 
 ## 5. Assumptions
-<!-- Where the requirements left room for interpretation, the calls you made and why. -->
 
--
+- Policies like cr_a_o imply approval permissions
+- Mock API simulates backend behavior (state mutation   required)
+- Status transitions:
+- PENDING_APPROVAL → APPROVED / REJECTED
+- Timeline entries use at as timestamp field
+- Only relevant fields (quantity, unitPrice) define a "change"
 
 ## 6. Where I used AI
--
+
+- Claude AI was used in verifying the logic and similar problems from Stackoverflow were also searched.
 
 ## 7. What I'd improve with more time
--
+
+- I would improve the UI/UX of the product
+- I would improved type safety
+- I would optimize diff logic by making it extensible for more fields.

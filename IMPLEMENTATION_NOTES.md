@@ -18,11 +18,11 @@ Logic implemented in order to grant permissions to only approver and not the vie
 
 Viewer can only see the requests buttons disable for it.
 
-- cr.list.component.ts
+- cr-list.component.ts
 
 In the change requests section the status listdown was not working implemented the function so it should display only selected status.
 
-- cr.detail.component.ts
+- cr-detail.component.ts
 
 Approve Function Implemented now status is changed from pending to approved and also data is fetched from Mock API.
 

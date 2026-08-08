@@ -55,18 +55,19 @@ export class CrDetailComponent implements OnInit {
 
 	/** Approval timeline, oldest-first. */
 	get timeline(): TimelineEntry[] {
-		// TODO: return the audit entries ordered chronologically (oldest first).
-		return this.detail?.audit ?? [];
+	  return [...(this.detail?.audit ?? [])].sort(
+    (a, b) => new Date(a.at).getTime() - new Date(b.at).getTime()
+  );
 	}
 
 	/** Whether the current user may approve the loaded CR. */
 	get canApprove(): boolean {
 		// NOTE: this only looks at the CR status. The UI must also respect the user's permissions.
-		return this.detail?.status === 'PENDING_APPROVAL';
+		return (this.detail?.status === 'PENDING_APPROVAL' && this.session.user.policies.includes('cr_a_o'));
 	}
 
 	get canReject(): boolean {
-		return this.detail?.status === 'PENDING_APPROVAL';
+		return (this.detail?.status === 'PENDING_APPROVAL' && this.session.user.policies.includes('cr_r_o'));
 	}
 
 	fmt(amount: number): string {

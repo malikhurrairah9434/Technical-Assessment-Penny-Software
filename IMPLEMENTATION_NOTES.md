@@ -26,6 +26,10 @@ In the change requests section the status listdown was not working implemented t
 
 Approve Function Implemented now status is changed from pending to approved and also data is fetched from Mock API.
 
+- cr-detail.component.ts
+
+Reject function implemented, now status is changed to Rejected.
+
 ## 2. Component & state model
 <!-- The screens, the view-state each component exposes, and how data flows from the mock API into the
 template. -->

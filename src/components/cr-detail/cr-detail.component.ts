@@ -76,7 +76,7 @@ export class CrDetailComponent implements OnInit {
 	}
 
 	async approve(): Promise<void> {
-		// TODO: perform the approve action through the API and reflect the outcome in the view.
+		// TODO: perform the approve action through the API and reflect the outcome in the view. Done!
 		if (!this.detail) return;
 		this.submitting = true;
 		this.actionError = undefined;
@@ -94,7 +94,28 @@ export class CrDetailComponent implements OnInit {
 
 	async reject(): Promise<void> {
 		// TODO: require a valid rejectControl, then perform the reject action through the API and
-		//       reflect the outcome in the view.
-		throw new Error('reject() not implemented');
+		//       reflect the outcome in the view. DONE!
+		if (!this.detail) return;
+		if (this.rejectControl.invalid) {
+			this.rejectControl.markAsTouched();
+			return;
+		}
+		this.submitting = true;
+		this.actionError = undefined;
+
+		try { 
+			await this.api.reject(
+				this.session.user,
+				this.detail.id,
+				new Date().toISOString(),
+				this.rejectControl.value
+			);
+			await this.load();
+		} catch (err) {
+			this.actionError = (err as Error).message;
+		} finally {
+			this.submitting = false;
+			
+		}
 	}
 }

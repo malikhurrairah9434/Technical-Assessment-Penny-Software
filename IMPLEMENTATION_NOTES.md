@@ -6,7 +6,11 @@
 ## 1. What I changed
 <!-- Grouped by task: bugs fixed and features implemented (component + template). -->
 
--
+- diff.util.ts
+
+In the compute function only unit price were being compared so the change detection logic was not clear or incomplete so quantity was also compared in order to detect change"
+
+*Reference:* https://stackoverflow.com/questions/1068834/object-comparison-in-javascript
 
 ## 2. Component & state model
 <!-- The screens, the view-state each component exposes, and how data flows from the mock API into the

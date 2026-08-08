@@ -22,6 +22,10 @@ Viewer can only see the requests buttons disable for it.
 
 In the change requests section the status listdown was not working implemented the function so it should display only selected status.
 
+- cr.detail.component.ts
+
+Approve Function Implemented now status is changed from pending to approved and also data is fetched from Mock API.
+
 ## 2. Component & state model
 <!-- The screens, the view-state each component exposes, and how data flows from the mock API into the
 template. -->

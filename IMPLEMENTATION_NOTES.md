@@ -29,7 +29,7 @@ Reject function implemented, now status is changed to Rejected.
 
 ## 2. Component & state model
 
-- A simple VieState Patter was used:
+- A simple ViewState Pattern was used:
 idle, loading, loaded and error
 - Benifits:
 Clear UI state transitions, easier error handeling and predictable rendering.
@@ -37,16 +37,16 @@ Clear UI state transitions, easier error handeling and predictable rendering.
 Component -> API service -> mock data
 UI always reflects API response.
 
--
 
 ## 3. Invariants I keep
 
 
-| Invariant | How / where |
-|Only Approvers can take actions | can approve reject|
-|Reject must include reason | Form Validations|
-|Chronological Timeline | timeling getter sorted|
-|Diff rows must be accurate | all fields comparison in computeDiff|
+| Invariant                         | How / Where                         |
+|----------------------------------|--------------------------------------|
+| Only Approvers can take actions  | Can approve or reject                |
+| Reject must include reason       | Form validations                     |
+| Chronological Timeline           | Timeline getter (sorted)             |
+| Diff rows must be accurate       | Full field comparison in computeDiff |
 
 
 ## 4. Testing strategy
@@ -68,6 +68,7 @@ UI always reflects API response.
 ## 6. Where I used AI
 
 - Claude AI was used in verifying the logic and similar problems from Stackoverflow were also searched.
+- To fix Markdown Code GPT was used.
 
 ## 7. What I'd improve with more time
 
